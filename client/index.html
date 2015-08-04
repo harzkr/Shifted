@@ -1,0 +1,37 @@
+<head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <base href="/">
+</head>
+
+
+<body layout="row">
+  <div class="bar bar-header bar-dark">
+    <button class="button icon ion-navicon"></button>
+    <h1 class="title"><a href="/orders">Orders</a></h1>
+    <span flex></span>
+    <button class="button" ng-href="/login" ng-hide="$root.currentUser">Login</button>
+    <button class="button" ng-href="/register" ng-hide="$root.currentUser">Sign up</button>
+    <div ng-show="$root.currentUser">{{ $root.currentUser }}</div>
+    <button class="button button-clear button-energized" ng-href="/logout" ng-show="$root.currentUser">Logout</button>
+    <!--div class="navbar-right navbar-text">
+      <meteor-include src="loginButtons"></meteor-include>
+  </div-->
+   </div>
+   <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light tabs-icon-top">
+    <div class="tabs">
+      <a class="tab-item active" href="/orders">
+        <i class="icon ion-home"></i>
+        Home
+      </a>
+      <a class="tab-item" href="/personal">
+        <i class="icon ion-star"></i>
+        My orders
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+  <div ui-view class="container-fluid"></div>
+</body>

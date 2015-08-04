@@ -1,0 +1,51 @@
+<!--md-content layout="row">
+  <span flex></span>
+  <md-whiteframe layout="column" flex="50">
+    <div layout="row" layout-align="space-around center">
+      <div>Login with:</div>
+      <md-button>Twitter</md-button>
+      <md-button>Google</md-button>
+    </div>
+    <div ng-show="lc.error" class="md-warn"><small>{{ lc.error }}</small></div>
+    <form layout="column">
+      <md-input-container>
+        <md-icon md-svg-icon="content:ic_mail_24px"></md-icon>
+        <input type="text" ng-model="lc.credentials.email"
+               placeholder="email" aria-label="email" />
+      </md-input-container>
+      <md-input-container>
+        <md-icon md-svg-icon="action:ic_lock_open_24px"></md-icon>
+        <input type="password" ng-model="lc.credentials.password"
+               placeholder="password" aria-label="password" />
+      </md-input-container>
+      <md-button class="md-raised md-primary" ng-click="lc.login()"
+                 aria-label="login">Sign In</md-button>
+    </form>
+    <div layout="row" layout-align="space-around center">
+      <a href="/resetpw">Forgot password?</a>
+      <a href="/register">Create an account</a>
+    </div>
+  </md-whiteframe>
+  <span flex></span>
+</md-content-->
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">E-mail</span>
+    <input type="text" ng-model="lc.credentials.email" placeholder="email">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Password</span>
+    <input type="text" ng-model="lc.credentials.password" placeholder="password">
+  </label>
+</div>
+<div class="">
+  <button ng-click="lc.login()" class="button button-outline button-positive">
+   Sign In
+ </button>
+ <button ng-click="lc.login()" class="button button-outline button-stable">
+  Forgot Password?
+</button>
+<button ng-click="lc.login()" class="button button-outline button-stable">
+ Create Account
+</button>
+</div>

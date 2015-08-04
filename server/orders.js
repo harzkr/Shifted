@@ -1,0 +1,29 @@
+Meteor.publish("orders", function (options, searchString) {
+  if (searchString == null)
+    searchString = '';
+
+  Counts.publish(this, 'numberOfOrders', Orders.find({
+    'name' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' },
+    $or:[
+      //{$and:[
+        //{"public": true},
+        //{"public": {$exists: true}}
+      //]},
+      {$and:[
+        {owner: this.userId},
+        {owner: {$exists: true}}
+      ]}
+    ]}), { noReady: true });
+  return Orders.find({
+    'name' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' },
+    $or:[
+      //{$and:[
+        //{"public": true},
+        //{"public": {$exists: true}}
+      //]},
+      {$and:[
+        {owner: this.userId},
+        {owner: {$exists: true}}
+      ]}
+    ]} ,options);
+});

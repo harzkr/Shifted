@@ -1,0 +1,30 @@
+<div class="orders-list">
+      <div class="bar bar-subheader" ng-hide="$root.currentUser || $root.loggingIn">
+        <h2 class="title">Log In to create an order</h2>
+      </div>
+      <div class="list" ng-show="$root.currentUser">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="Name" ng-model="newOrder.name" id = "nameInput" >
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Description</span>
+          <input type="text" placeholder="Description" ng-model="newOrder.description" id = "description" >
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Commence</span>
+          <input type="text" placeholder="Commence" ng-model="newOrder.commence" id = "commence" >
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Dispatch</span>
+          <input type="text" placeholder="Dispatch" ng-model="newOrder.dispatch" id = "nameInput" >
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Freight</span>
+          <input type="text" placeholder="Freight" ng-model="newOrder.freight" id = "freight" >
+        </label>
+      </div>
+      <div class="col">
+        <button class="button button-clear button-energized" ng-click="newOrder.owner=$root.currentUser._id;orders.push(newOrder); newOrder='';">ADD</button>
+     </div>
+</div>
